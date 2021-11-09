@@ -3,14 +3,14 @@ import java.nio.charset.StandardCharsets
 import sbt.complete.DefaultParsers._
 
 
-val SkunkVersion = "0.0.21"
+val SkunkVersion = "0.2.2"
 
 val runTest = inputKey[Unit]("run test")
 
 lazy val root = (project in file("."))
   .settings(
     Global / onChangedBuildSource := ReloadOnSourceChanges,
-    scalaVersion := "2.13.3",
+    scalaVersion := "2.13.6",
     libraryDependencies ++= Seq(
       "org.tpolecat" %% "skunk-core" % SkunkVersion
     ),
@@ -34,13 +34,17 @@ lazy val root = (project in file("."))
       }
       """
 
-      val f = (Compile / sourceManaged).value / "skunk" /  "Test.scala"
+      val f = (Compile / sourceDirectory).value / "scala" /  "Test.scala"
       
       IO.write(f, program)
 
       Seq(f)
   },
-  Compile / managedSources ++= ((Compile / sourceManaged).value ** "Test.scala").get,
     addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3"),
     addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1"),
+    scalacOptions ++= Seq(
+    "-Yprofile-trace",
+    "trace.trace"
+    )
   )
+  
