@@ -44,7 +44,8 @@ lazy val root = (project in file("."))
     addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1"),
     scalacOptions ++= Seq(
     "-Yprofile-trace",
-    "trace.trace"
+    "trace.trace",
+    "-Ystatistics:patmat"
     )
   )
   
