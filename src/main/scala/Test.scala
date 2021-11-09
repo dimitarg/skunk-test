@@ -7,7 +7,7 @@
         (
           text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text ~ text
         ).map {case
-         ((((((((((((((((((((((((_, _), _), _), _), _), _), _), _), _), _), _), _), _), _), _), _), _), _), _), _), _), _), _), _) => ()
+          _ => ()
         // case _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ ~ _ => ()
         }
 
